@@ -23,6 +23,7 @@ Pour casser la dépendance cyclique, on peut introduire une interface qui isole 
 Modification de Namedlogger pour avoir un writemessage qui abstrait la méthode d'écriture de message.
 
 ## Exercices 6
+Ajout d'une Factory pour créer l'instance qu'on veut d'un Logger
 
 ## Exercices 7
 
