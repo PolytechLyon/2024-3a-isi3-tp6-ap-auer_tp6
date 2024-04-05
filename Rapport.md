@@ -26,6 +26,7 @@ Modification de Namedlogger pour avoir un writemessage qui abstrait la méthode 
 Ajout d'une Factory pour créer l'instance qu'on veut d'un Logger
 
 ## Exercices 7
+Oui, on peut avoir plusieurs lignes dans le fichier fr.polytech.sim.cycling.Bike, et chaque ligne correspond à une implémentation différente de Bike que ServiceLoader peut charger. Lorsqu'il y a plusieurs implémentations, ServiceLoader peut charger une collection de ces services, permettant à votre application de parcourir et d'utiliser toutes les implémentations disponibles. Cependant, pour une utilisation spécifique où une seule instance est attendue (comme dans votre cas d'utilisation de simulation de vélo), vous devriez vous assurer que le fichier ne liste qu'une seule implémentation à la fois, ou que votre logique d'application sélectionne la bonne implémentation parmi celles disponibles.
 
 ## Exercices 8
 
