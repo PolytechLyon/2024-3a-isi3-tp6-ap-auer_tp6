@@ -20,6 +20,7 @@ Ce type de dépendance est une dépendance directe ou explicite, elles ne sont p
 
 Pour casser la dépendance cyclique, on peut introduire une interface qui isole la fonctionnalité de poussée, par exemple une interface Pushable. Cette interface peut définir une méthode getPush(). Ensuite, la classe Bike peut implémenter cette interface. La classe Wheel peut alors dépendre de l'interface Pushable au lieu de la classe concrète Bike.
 ## Exercices 5
+Modification de Namedlogger pour avoir un writemessage qui abstrait la méthode d'écriture de message.
 
 ## Exercices 6
 
