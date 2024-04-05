@@ -1,7 +1,6 @@
 package fr.polytech.sim.transport;
 
 import fr.polytech.sim.Clock;
-import fr.polytech.sim.cycling.Bike;
 import fr.polytech.sim.log.ConsoleLogger;
 import fr.polytech.sim.log.Logger;
 import java.util.Objects;
@@ -14,15 +13,15 @@ public class Wheel implements MobileObject {
 
     private final Logger logger = new ConsoleLogger("Wheel");
     private final Clock clock = Clock.getInstance();
-    private final Bike drive;
+    private final Pushable drive;
 
     /**
      * Constructor.
      *
      * @param drive  the object providing push power.
      */
-    public Wheel(Bike drive) {
-        Objects.requireNonNull(drive, "Bike must not be null.");
+    public Wheel(Pushable drive) {
+        Objects.requireNonNull(drive, "Pushable object must not be null.");
         this.drive = drive;
     }
 

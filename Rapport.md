@@ -15,7 +15,10 @@ La méthode getVelocity() de la classe Vehicle utilise le patron de conception I
 Dans cette implémentation, l'instance Clock est créée a la première fois que getInstance() est appelé. C'est ce qu'on appelle le singleton paresseux. Cela garantit que l'instance est créée uniquement lorsque nécessaire. L'instance est ensuite stockée dans la variable statique unique. Les appels suivants à getInstance() renvoient simplement l'instance déjà créée.
 
 ## Exercices 4
+Les classes Bike et Wheel appartiennent à des paquetages différents : Bike est dans fr.polytech.sim.cycling tandis que Wheel est dans fr.polytech.sim.transport. Il y a une dépendance directe de Wheel vers Bike car Wheel utilise une instance de Bike pour calculer sa vitesse via la méthode getPush().
+Ce type de dépendance est une dépendance directe ou explicite, elles ne sont pas idéales en termes de bonnes pratiques de conception, car elles réduisent la modularité et la réutilisabilité du code.
 
+Pour casser la dépendance cyclique, on peut introduire une interface qui isole la fonctionnalité de poussée, par exemple une interface Pushable. Cette interface peut définir une méthode getPush(). Ensuite, la classe Bike peut implémenter cette interface. La classe Wheel peut alors dépendre de l'interface Pushable au lieu de la classe concrète Bike.
 ## Exercices 5
 
 ## Exercices 6
