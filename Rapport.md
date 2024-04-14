@@ -1,6 +1,6 @@
 # Compte Rendu du TP 1 : Patrons de Conceptions
 
-Noms des étudiants du binôme : Auer Mathéo
+Noms des étudiants du binôme : Auer Mathéo, Dupré Romain
 
 ## Exercices 1
 Ce modèle illustre le patron de conception Composite. Dans le patron de conception Composite, vous avez généralement une structure d'objets où des objets simples et des compositions d'objets sont traités de manière uniforme.
@@ -23,14 +23,25 @@ Pour casser la dépendance cyclique, on peut introduire une interface qui isole 
 Modification de Namedlogger pour avoir un writemessage qui abstrait la méthode d'écriture de message.
 
 ## Exercices 6
-Ajout d'une Factory pour créer l'instance qu'on veut d'un Logger
+Ajout d'une Factory pour créer l'instance qu'on veut d'un Logger.
+
+Dans le contexte de l'exercice, l'utilisation du patron Singleton pourrait permettre de s'assurer qu'il n'y a qu'un seul objet Logger dans l'application, et ainsi éviter les problèmes liés à la gestion de plusieurs instances.  
+Cependant, il ne permet pas de déléguer la création d'objets à des classes dérivées, contrairement au patron **méthode fabrique**.
+
+De plus, si on utilise le patron `Singleton` on perd tout l'intérêt de notre classe `NamedLogger`. En effet, si on appelle la première fois notre getInstance() pour `Vehicle` on va lui donner le nom "Vehicule".
+
+On aura donc une instance de `Logger` qui a "Vehicle" comme nom. Or si je rappelle getInstance() dans `BikeSimulator`, je vais récupérer un objet `Logger`avec un nom de "Vehicle" et non "BikeSimulator".
+Ainsi, le patron de conception **Singleton** n'est pas adapté pour cette utilisation et on préférera le patron **méthode fabrique**.
+
 
 ## Exercices 7
 On Applique un décorateur sur le LoggerFactory pour que avoir le timestamp à chaque logger
 
 ## Exercices 8 & 9
 On utilise le paterne de conception Facade pour simplifier l'utilisation de ServiceLoader avec Context
-Oui, on peut avoir plusieurs lignes dans le fichier fr.polytech.sim.cycling.Bike, et chaque ligne correspond à une implémentation différente de Bike que ServiceLoader peut charger. Lorsqu'il y a plusieurs implémentations, ServiceLoader peut charger une collection de ces services, permettant à votre application de parcourir et d'utiliser toutes les implémentations disponibles. Cependant, pour une utilisation spécifique où une seule instance est attendue (comme dans votre cas d'utilisation de simulation de vélo), vous devriez vous assurer que le fichier ne liste qu'une seule implémentation à la fois, ou que votre logique d'application sélectionne la bonne implémentation parmi celles disponibles.
+Oui, on peut avoir plusieurs lignes dans le fichier fr.polytech.sim.cycling.Bike, et chaque ligne correspond à une implémentation différente de Bike que ServiceLoader peut charger. 
+Lorsqu'il y a plusieurs implémentations, ServiceLoader peut charger une collection de ces services, permettant à notre application de parcourir et d'utiliser toutes les implémentations disponibles. 
+Cependant, pour une utilisation spécifique où une seule instance est attendue (comme dans notre cas d'utilisation de simulation de vélo), nous devons nous assurer que le fichier ne liste qu'une seule implémentation à la fois, ou que la logique d'application sélectionne la bonne implémentation parmi celles disponibles.
 
 
 
