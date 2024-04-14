@@ -9,17 +9,10 @@ import java.util.*;
 /**
  * Vehicle abstraction.
  */
-public abstract class Vehicle implements MobileObject {
+public abstract class Vehicle implements MobileObject, Pushable {
 
     private final Logger logger = LoggerFactory.getLogger("Vehicle");
     protected final List<MobileObject> components = new ArrayList<>();
-
-    /**
-     * Force applied to push the vehicle.
-     *
-     * @return  push force.
-     */
-    public abstract double getPush();
 
     /**
      * Calculate and return vehicle's velocity based on individual velocities of
