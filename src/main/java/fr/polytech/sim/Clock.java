@@ -8,6 +8,19 @@ import java.util.Random;
 public class Clock {
     private final int time = new Random().nextInt(25);
 
+    // Singleton Pattern
+    private static Clock instance;
+
+    private Clock() {
+    }
+
+    public static Clock getInstance() {
+        if (instance == null) {
+            instance = new Clock();
+        }
+        return instance;
+    }
+
     /**
      * Random integer between 0 and 24 inclusive.
      */
